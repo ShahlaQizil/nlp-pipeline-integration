@@ -26,7 +26,10 @@ nlp = spacy.load("en_core_web_sm")
 
 # Initialize the sentiment analysis pipeline (loaded once and reused)
 # Downloads and prepares a neural network that has been trained to tell if a sentence is "Positive" or "Negative."
-sentiment_analyzer = pipeline('sentiment-analysis')
+sentiment_analyzer = pipeline(
+    "sentiment-analysis",
+    model="distilbert-base-uncased-finetuned-sst-2-english",
+)
 
 # Improved 3-class sentiment model (POSITIVE / NEUTRAL / NEGATIVE).
 # Built on RoBERTa and trained on tweets, so it handles informal text well
